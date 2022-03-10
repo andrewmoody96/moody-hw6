@@ -1,0 +1,14 @@
+body {
+    margin: 10px;
+    width: auto;
+}
+
+button {
+    margin: 5px;
+}
+
+.weatherData {
+    margin: 10px;
+    width: 100vw;
+}
+

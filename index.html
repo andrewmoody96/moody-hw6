@@ -10,7 +10,21 @@
 </head>
 <body>
     <h1>Weather Dashboard</h1>
-
+    <div id="search">
+        <input type="text" id="userSearch">
+        <button id="getWeather">Search</button>
+    </div>
+    <div id="weatherContainer">
+        <!-- Append both when button is clicked -->
+        <div id="currentWeather" class="weatherData">
+            Current Weather
+            <!-- Append current info to this div -->
+        </div>
+        <div id="forecast" class="weatherData">
+            5-Day Forecast
+            <!-- Append forecast to this div -->
+        </div>
+    </div>
     <script src="./script.js"></script>
 </body>
 </html>
