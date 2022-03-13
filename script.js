@@ -30,6 +30,7 @@ function displayWeather() {
   // Gets location from user input and converts to latitude & longitude.
   cityName = $("#userSearch").val();
   state = $("#userState").val();
+  localStorage.setItem(`${cityName}`, `${cityName}`)
   fetch(
     locationURL +
       cityName +
