@@ -27,8 +27,6 @@ var weatherList4 = $(`<ul>`);
 var weatherList5 = $(`<ul>`);
 var searchHistory = $("#savedCities");
 
-
-
 function displayWeather() {
   $("#cityNameDisplay").remove();
   $("#day1data").empty();
@@ -45,7 +43,9 @@ function displayWeather() {
     `<button class="rounded-lg p-2 my-5 mx-2 text-xl bg-emerald-300 border-solid border-2 border-gray-900">${cityName}</button>`
   );
   $(savedBtn).appendTo("#savedCities");
-  cityNameDisplay = $(`<p id="cityNameDisplay" class="text-2xl my-20px">${cityName}</p>`);
+  cityNameDisplay = $(
+    `<p id="cityNameDisplay" class="text-2xl my-20px">${cityName}</p>`
+  );
   $(cityNameDisplay).prependTo("#currentContainer");
   fetch(
     locationURL +
@@ -69,7 +69,7 @@ function displayWeather() {
       console.log(lon);
 
       getWeather(lat, lon);
-      
+
       // Uses latitude & longitude values to get a forecast for the location.
       function getWeather() {
         var weatherIcon = `https://openweathermap.org/img/wn/`;
@@ -88,12 +88,13 @@ function displayWeather() {
           .then(function (weatherResponse) {
             var currentIcon = weatherResponse.current.weather[0].icon;
             var currentTemp = weatherResponse.current.temp.toFixed();
-            var currentConditions = weatherResponse.current.weather[0].description;
+            var currentConditions =
+              weatherResponse.current.weather[0].description;
             var currentHumidity = weatherResponse.current.humidity;
             var currentWind = weatherResponse.current.wind_speed;
             var currentUVI = weatherResponse.current.uvi;
 
-            picCurrent = $(picCurrent).attr(
+            picCurrent = $(picCurrent).addClass("h-14 w-auto").attr(
               "src",
               `${weatherIcon}${currentIcon}.png`
             );
@@ -233,7 +234,7 @@ function displayWeather() {
               } else if (i === 1) {
                 console.log("2");
                 picDay1 = $(picDay2)
-                  .addClass()
+                  .addClass("h-11")
                   .attr("src", `${weatherIcon}${weatherIMG}.png`);
                 $(picDay1).appendTo("#day2");
 
@@ -327,10 +328,9 @@ function displayWeather() {
                 $(windDegree).appendTo("#day2data");
               } else if (i === 2) {
                 console.log("3");
-                picDay1 = $(picDay3).attr(
-                  "src",
-                  `${weatherIcon}${weatherIMG}.png`
-                );
+                picDay1 = $(picDay3)
+                  .addClass("h-11")
+                  .attr("src", `${weatherIcon}${weatherIMG}.png`);
                 $(picDay1).appendTo("#day3");
 
                 // creates & appends items to list
@@ -425,7 +425,7 @@ function displayWeather() {
               } else if (i === 3) {
                 console.log("4");
                 picDay1 = $(picDay4)
-                  .addClass()
+                  .addClass("h-11")
                   .attr("src", `${weatherIcon}${weatherIMG}.png`);
                 $(picDay1).appendTo("#day4");
 
@@ -520,7 +520,7 @@ function displayWeather() {
               } else if (i === 4) {
                 console.log("5");
                 picDay1 = $(picDay5)
-                  .addClass()
+                  .addClass("h-11")
                   .attr("src", `${weatherIcon}${weatherIMG}.png`);
                 $(picDay1).appendTo("#day5");
 

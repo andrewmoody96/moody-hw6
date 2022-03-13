@@ -1,9 +1,7 @@
 body {
-    padding: 10px;
     width: auto;
     max-width: 100vw;
     overflow-x: hidden;
-    background-color: #262626;
     color: white;
 }
 
