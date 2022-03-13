@@ -94,7 +94,7 @@ function displayWeather() {
             $(currentList).appendTo("#dayCurrent");
             currentTemp = `<li class="text-base">Temp: ${currentTemp}º</li>`;
             $(currentTemp).appendTo("#currentList");
-            currentConditions = `<li class="text-base">Temp: ${currentConditions}</li>`;
+            currentConditions = `<li class="text-base">${currentConditions}</li>`;
             $(currentConditions).appendTo("#currentList");
             currentHumidity = `<li class="text-base">Humidity: ${currentHumidity}%</li>`;
             $(currentHumidity).appendTo("#currentList");
