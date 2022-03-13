@@ -2,6 +2,7 @@
 // ---------------------------------------------
 // location:
 var cityName = "";
+var cityNameDisplay = null;
 var state = "";
 var countryCode = ",US";
 var locationURL = "https://api.openweathermap.org/geo/1.0/direct?q=";
@@ -26,7 +27,16 @@ var weatherList4 = $(`<ul>`);
 var weatherList5 = $(`<ul>`);
 var searchHistory = $("#savedCities");
 
+
+
 function displayWeather() {
+  $("#cityNameDisplay").remove();
+  $("#day1data").empty();
+  $("#day2data").empty();
+  $("#day3data").empty();
+  $("#day4data").empty();
+  $("#day5data").empty();
+  $("#currentList").empty();
   // Gets location from user input and converts to latitude & longitude.
   cityName = $("#userSearch").val();
   state = $("#userState").val();
@@ -35,6 +45,8 @@ function displayWeather() {
     `<button class="rounded-lg p-2 my-5 mx-2 text-xl bg-emerald-300 border-solid border-2 border-gray-900">${cityName}</button>`
   );
   $(savedBtn).appendTo("#savedCities");
+  cityNameDisplay = $(`<p id="cityNameDisplay" class="text-2xl my-20px">${cityName}</p>`);
+  $(cityNameDisplay).prependTo("#currentContainer");
   fetch(
     locationURL +
       cityName +
@@ -57,12 +69,7 @@ function displayWeather() {
       console.log(lon);
 
       getWeather(lat, lon);
-      $("#day1data").empty();
-      $("#day2data").empty();
-      $("#day3data").empty();
-      $("#day4data").empty();
-      $("#day5data").empty();
-      $("#currentList").empty();
+      
       // Uses latitude & longitude values to get a forecast for the location.
       function getWeather() {
         var weatherIcon = `https://openweathermap.org/img/wn/`;
@@ -85,10 +92,6 @@ function displayWeather() {
             var currentHumidity = weatherResponse.current.humidity;
             var currentWind = weatherResponse.current.wind_speed;
             var currentUVI = weatherResponse.current.uvi;
-
-            // Trying to set h2 text to the user input, but this gives me an object.
-            // var headingCurrent = $(`<h2 id="cityHeading">${cityName}</h2>`);
-            // $(headingCurrent).prependTo("#currentContainer");
 
             picCurrent = $(picCurrent).attr(
               "src",
