@@ -24,8 +24,15 @@ Repository: https://github.com/andrewmoody96/moody-hw6-WeatherDashboard
 ## Screenshots
 ---
 
-![Video Demo of the Web App](./Assets/moodyWeatherCapture.mov "Video Demo")
+![Screenshot of the Web App](./Assets/moodyWeather1.png "Screenshot of the Web App")
 
+![Screenshot of the Web App](./Assets/moodyWeather2.png "Screenshot of the Web App")
+
+![Screenshot of the Web App](./Assets/moodyWeather3.png "Screenshot of the Web App")
+
+![Screenshot of the Web App](./Assets/moodyWeather4.png "Screenshot of the Web App")
+
+<br>
 
 ## Issues
 ---
