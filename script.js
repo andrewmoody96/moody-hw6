@@ -143,7 +143,7 @@ function displayWeather() {
                 $(picDay1).appendTo("#day1");
 
                 // creates & appends items to list
-                weatherList1 = $(weatherList1).attr("id", "day1data");
+                weatherList1 = $(weatherList1).addClass("contents").attr("id", "day1data");
                 $(weatherList1).appendTo("#day1");
 
                 tempHigh = `<li class="text-base">High: ${tempHigh}º</li>`;
@@ -239,7 +239,7 @@ function displayWeather() {
                 $(picDay1).appendTo("#day2");
 
                 // creates & appends items to list
-                weatherList2 = $(weatherList2).attr("id", "day2data");
+                weatherList2 = $(weatherList2).addClass("contents").attr("id", "day2data");
                 $(weatherList2).appendTo("#day2");
 
                 tempHigh = `<li class="text-base">High: ${tempHigh}º</li>`;
