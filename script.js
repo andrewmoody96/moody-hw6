@@ -25,12 +25,15 @@ var weatherList2 = $(`<ul>`);
 var weatherList3 = $(`<ul>`);
 var weatherList4 = $(`<ul>`);
 var weatherList5 = $(`<ul>`);
+var searchHistory = $("#savedCities");
 
 function displayWeather() {
   // Gets location from user input and converts to latitude & longitude.
   cityName = $("#userSearch").val();
   state = $("#userState").val();
   localStorage.setItem(`${cityName}`, `${cityName}`)
+  let savedBtn = $(`<button class="rounded-lg p-2 my-5 mx-2 text-xl bg-emerald-300 border-solid border-2 border-gray-900">${cityName}</button>`);
+  $(savedBtn).appendTo("#savedCities");
   fetch(
     locationURL +
       cityName +
@@ -58,6 +61,7 @@ function displayWeather() {
       $("#day3data").empty();
       $("#day4data").empty();
       $("#day5data").empty();
+      $("#currentList").empty();
       // Uses latitude & longitude values to get a forecast for the location.
       function getWeather() {
         var weatherIcon = `https://openweathermap.org/img/wn/`;
