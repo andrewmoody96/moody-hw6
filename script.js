@@ -15,8 +15,7 @@ var picDay2 = $(`<img class="w-1/4 h-full mt-5 mb-10">`);
 var picDay3 = $(`<img class="w-1/4 h-full mt-5 mb-10">`);
 var picDay4 = $(`<img class="w-1/4 h-full mt-5 mb-10">`);
 var picDay5 = $(`<img class="w-1/4 h-full mt-5 mb-10">`);
-var currentDay =$("#dayCurrent");
-var headingCurrent = $("#headingCurrent");
+var currentDay = $("#dayCurrent");
 var currentList = $(
   `<ul id="currentList" class="flex flex-col justify-center">`
 );
@@ -31,8 +30,10 @@ function displayWeather() {
   // Gets location from user input and converts to latitude & longitude.
   cityName = $("#userSearch").val();
   state = $("#userState").val();
-  localStorage.setItem(`${cityName}`, `${cityName}`)
-  let savedBtn = $(`<button class="rounded-lg p-2 my-5 mx-2 text-xl bg-emerald-300 border-solid border-2 border-gray-900">${cityName}</button>`);
+  localStorage.setItem(`${cityName}`, `${cityName}`);
+  let savedBtn = $(
+    `<button class="rounded-lg p-2 my-5 mx-2 text-xl bg-emerald-300 border-solid border-2 border-gray-900">${cityName}</button>`
+  );
   $(savedBtn).appendTo("#savedCities");
   fetch(
     locationURL +
@@ -80,11 +81,14 @@ function displayWeather() {
           .then(function (weatherResponse) {
             var currentIcon = weatherResponse.current.weather[0].icon;
             var currentTemp = weatherResponse.current.temp.toFixed();
-            var currentConditions =
-              weatherResponse.current.weather[0].description;
+            var currentConditions = weatherResponse.current.weather[0].description;
             var currentHumidity = weatherResponse.current.humidity;
             var currentWind = weatherResponse.current.wind_speed;
             var currentUVI = weatherResponse.current.uvi;
+
+            // Trying to set h2 text to the user input, but this gives me an object.
+            // var headingCurrent = $(`<h2 id="cityHeading">${cityName}</h2>`);
+            // $(headingCurrent).prependTo("#currentContainer");
 
             picCurrent = $(picCurrent).attr(
               "src",
@@ -102,7 +106,7 @@ function displayWeather() {
             $(currentWind).appendTo("#currentList");
 
             // Applies background color to indicate favorable, moderate, or severe UVI ratings.
-            $(currentDay).removeClass("bg-lime-500 bg-yellow-500 bg-red-500")
+            $(currentDay).removeClass("bg-lime-500 bg-yellow-500 bg-red-500");
             if (currentUVI <= 2) {
               $(currentDay).addClass("bg-lime-500");
             }
@@ -115,7 +119,6 @@ function displayWeather() {
 
             currentUVI = `<li class="text-base">UV Index: ${currentUVI}</li>`;
             $(currentUVI).appendTo("#currentList");
-            
 
             // Retrieves and appends weather data from the first 5 days of the forecast.
             for (var i = 0; i < 5; i++) {
