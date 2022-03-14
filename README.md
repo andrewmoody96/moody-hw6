@@ -36,8 +36,6 @@ Repository: https://github.com/andrewmoody96/moody-hw6-WeatherDashboard
 
 ## Issues
 ---
-1. For loop is appending day 2 and 4 info to day 5. Need to figure out why it's not displaying in the correct block.
+1. Need to run the function again using the saved values in local storage.
 
-2. Need to run the function again using the saved values in local storage.
-
-3. Polish UI
+2. Polish UI

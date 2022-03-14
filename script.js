@@ -40,7 +40,7 @@ function displayWeather() {
   state = $("#userState").val();
   localStorage.setItem(`${cityName}`, `${cityName}`);
   let savedBtn = $(
-    `<button class="rounded-lg p-2 my-5 mx-2 text-xl bg-emerald-300 border-solid border-2 border-gray-900">${cityName}</button>`
+    `<button id="${cityName}" class="rounded-lg p-2 my-5 mx-2 text-xl bg-emerald-300 border-solid border-2 border-gray-900">${cityName}</button>`
   );
   $(savedBtn).appendTo("#savedCities");
   cityNameDisplay = $(
@@ -430,8 +430,8 @@ function displayWeather() {
                 $(picDay1).appendTo("#day4");
 
                 // creates & appends items to list
-                weatherList2 = $(weatherList2).attr("id", "day4data");
-                $(weatherList2).appendTo("#day4");
+                weatherList4 = $(weatherList4).attr("id", "day4data");
+                $(weatherList4).appendTo("#day4");
 
                 tempHigh = `<li class="text-base">High: ${tempHigh}º</li>`;
                 $(tempHigh).appendTo("#day4data");
@@ -525,8 +525,8 @@ function displayWeather() {
                 $(picDay1).appendTo("#day5");
 
                 // creates & appends items to list
-                weatherList2 = $(weatherList2).attr("id", "day5data");
-                $(weatherList2).appendTo("#day5");
+                weatherList5 = $(weatherList5).attr("id", "day5data");
+                $(weatherList5).appendTo("#day5");
 
                 tempHigh = `<li class="text-base">High: ${tempHigh}º</li>`;
                 $(tempHigh).appendTo("#day5data");
