@@ -1,13 +1,9 @@
+
+
 module.exports = {
   theme: {
-    extend: {
-      fontFamily: {
-        'sansita': ['"Sansita Swashed"', 'cursive'],
-      },
+    fontFamily: {
+      sansita: ['Sansita\\ Swashed', 'cursive'],
     },
   },
-  variants: {
-  },
-  plugins: [
-  ]
-}
+};
