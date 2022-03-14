@@ -10,13 +10,14 @@ var APIkeyLocation = "306e5a39201f9a04bf59daf2b8544d8a";
 // weather:
 var weatherURL = "https://api.openweathermap.org/data/2.5/onecall?lat=";
 var APIkeyWeather = "c443fd962d906a14e3af8d9d37623de2";
+// icons:
 var picCurrent = $(`<img class="w-1/4 h-full mt-5 mb-10">`);
 var picDay1 = $(`<img class="w-1/4 h-full mt-5 mb-10">`);
 var picDay2 = $(`<img class="w-1/4 h-full mt-5 mb-10">`);
 var picDay3 = $(`<img class="w-1/4 h-full mt-5 mb-10">`);
 var picDay4 = $(`<img class="w-1/4 h-full mt-5 mb-10">`);
 var picDay5 = $(`<img class="w-1/4 h-full mt-5 mb-10">`);
-var currentDay = $("#dayCurrent");
+// lists:
 var currentList = $(
   `<ul id="currentList" class="flex flex-col justify-center">`
 );
@@ -25,6 +26,8 @@ var weatherList2 = $(`<ul>`);
 var weatherList3 = $(`<ul>`);
 var weatherList4 = $(`<ul>`);
 var weatherList5 = $(`<ul>`);
+// selectors:
+var currentDay = $("#dayCurrent");
 var searchHistory = $("#savedCities");
 
 function displayWeather() {
@@ -35,18 +38,19 @@ function displayWeather() {
   $("#day4data").empty();
   $("#day5data").empty();
   $("#currentList").empty();
-  // Gets location from user input and converts to latitude & longitude.
+  // Gets location from user input and converts to latitude & longitude. 
   cityName = $("#userSearch").val();
   state = $("#userState").val();
   localStorage.setItem(`${cityName}`, `${cityName}`);
   let savedBtn = $(
-    `<button id="${cityName}" class="rounded-lg p-2 my-5 mx-2 text-xl bg-emerald-300 border-solid border-2 border-gray-900">${cityName}</button>`
+    `<button id="${cityName}" class="savedBtn rounded-lg p-2 my-5 mx-2 text-black text-xl bg-cyan-200 border-solid border-2 border-gray-900">${cityName}</button>`
   );
   $(savedBtn).appendTo("#savedCities");
+
   cityNameDisplay = $(
-    `<p id="cityNameDisplay" class="text-2xl my-20px">${cityName}</p>`
+    `<p id="cityNameDisplay" class="text-2xl mt-20px">${cityName}</p>`
   );
-  $(cityNameDisplay).prependTo("#currentContainer");
+  $(cityNameDisplay).appendTo("#saved-container");
   fetch(
     locationURL +
       cityName +
@@ -94,19 +98,18 @@ function displayWeather() {
             var currentWind = weatherResponse.current.wind_speed;
             var currentUVI = weatherResponse.current.uvi;
 
-            picCurrent = $(picCurrent).addClass("h-14 w-auto").attr(
-              "src",
-              `${weatherIcon}${currentIcon}.png`
-            );
+            picCurrent = $(picCurrent)
+              .addClass("h-14 w-auto")
+              .attr("src", `${weatherIcon}${currentIcon}.png`);
             $(picCurrent).appendTo("#dayCurrent");
             $(currentList).appendTo("#dayCurrent");
-            currentTemp = `<li class="text-base">Temp: ${currentTemp}º</li>`;
+            currentTemp = `<li class="text-2xl">Temp: ${currentTemp}º</li>`;
             $(currentTemp).appendTo("#currentList");
-            currentConditions = `<li class="text-base">${currentConditions}</li>`;
+            currentConditions = `<li class="text-2xl">${currentConditions}</li>`;
             $(currentConditions).appendTo("#currentList");
-            currentHumidity = `<li class="text-base">Humidity: ${currentHumidity}%</li>`;
+            currentHumidity = `<li class="text-2xl">Humidity: ${currentHumidity}%</li>`;
             $(currentHumidity).appendTo("#currentList");
-            currentWind = `<li class="text-base">Wind Speed: ${currentWind}mph</li>`;
+            currentWind = `<li class="text-2xl">Wind Speed: ${currentWind}mph</li>`;
             $(currentWind).appendTo("#currentList");
 
             // Applies background color to indicate favorable, moderate, or severe UVI ratings.
@@ -121,7 +124,7 @@ function displayWeather() {
               $(currentDay).addClass("bg-red-500");
             }
 
-            currentUVI = `<li class="text-base">UV Index: ${currentUVI}</li>`;
+            currentUVI = `<li class="text-2xl">UV Index: ${currentUVI}</li>`;
             $(currentUVI).appendTo("#currentList");
 
             // Retrieves and appends weather data from the first 5 days of the forecast.
@@ -143,7 +146,9 @@ function displayWeather() {
                 $(picDay1).appendTo("#day1");
 
                 // creates & appends items to list
-                weatherList1 = $(weatherList1).addClass("contents").attr("id", "day1data");
+                weatherList1 = $(weatherList1)
+                  .addClass("contents")
+                  .attr("id", "day1data");
                 $(weatherList1).appendTo("#day1");
 
                 tempHigh = `<li class="text-base">High: ${tempHigh}º</li>`;
@@ -239,7 +244,9 @@ function displayWeather() {
                 $(picDay1).appendTo("#day2");
 
                 // creates & appends items to list
-                weatherList2 = $(weatherList2).addClass("contents").attr("id", "day2data");
+                weatherList2 = $(weatherList2)
+                  .addClass("contents")
+                  .attr("id", "day2data");
                 $(weatherList2).appendTo("#day2");
 
                 tempHigh = `<li class="text-base">High: ${tempHigh}º</li>`;

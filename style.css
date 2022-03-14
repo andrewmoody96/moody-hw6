@@ -1,8 +1,9 @@
+
 body {
     width: auto;
     max-width: 100vw;
     overflow-x: hidden;
-    color: white;
+    color: black;
 }
 
 button {
