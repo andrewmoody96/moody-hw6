@@ -18,11 +18,43 @@
     <link rel="stylesheet" href="./style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          screens: {
+              'lgTablet': '900px',
+              'Phone': '480px',
+              'sPhone': '380px',
+              'xsPhone': '350px',
+            },
+          extend: {
+            fontFamily: {
+              sansita: ['"Sansita Swashed"', 'cursive'],
+              heading: ['"Indie Flower"', 'cursive'],
+              info: ['Alata', 'sans-serif']
+            },
+            colors: {
+              transparent: 'transparent',
+              current: 'currentColor',
+              'white': '#ffffff',
+              'purple': '#3f3cbb',
+              'midnight': '#121063',
+              'metal': '#565584',
+              'tahiti': '#3ab7bf',
+              'silver': '#ecebff',
+              'bubble-gum': '#ff77e9',
+              'bermuda': '#78dcca',
+            },
+          },
+        },
+      };
+      
+    </script>
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
   </head>
   <body class="bg-zinc-300">
     <header class="w-full bg-cyan-400">
-      <h1 class="font-sa text-4xl text-black p-5 text-left">
+      <h1 class="font-info text-4xl text-black p-5 text-left">
         What's The Weather?
       </h1>
     </header>
@@ -104,11 +136,11 @@
     >
       <div id="savedCities"></div>
     </div>
-    <div id="weatherContainer" class="m-5 flex flex-row">
+    <div id="weatherContainer" class="mx-2 w-ful flex flex-row gap-1 text-slate-900">
       <!-- Append both when button is clicked -->
       <div
         id="currentWeather"
-        class="weatherData w-1/2 flex flex-col my-5 pr-2.5 justify-center"
+        class="weatherData w-1/3 flex flex-col my-5 pr-2.5 justify-center"
       >
         <h2 id="headingCurrent" class="text-3xl text-center block mb-5">
           Current Weather
@@ -121,71 +153,71 @@
           </script>
           <div
             id="dayCurrent"
-            class="text-2xl text-center justify-center border-solid border-4 border-gray-900 rounded-lg h-96 flex flex-wrap flex-1"
+            class="bg-[#262626] text-xs lgTablet:text-base font-info pt-2.5 object-left text-center border-solid border-2 border-slate-900 ring-1 ring-zinc-800 ring-inset ring-offset-1 rounded-lg h-64 flex flex-wrap flex-col flex-1 shadow-inner shadow-zinc-700"
           ></div>
         </div>
         <!-- Append current info to this div -->
       </div>
       <div
         id="forecast"
-        class="weatherData w-1/2 flex flex-col my-5 justify-left"
+        class="weatherData w-2/3 flex flex-col my-5 justify-left"
       >
         <h2 class="text-3xl text-center block mb-20 pr-2.5 pb-3">
           5-Day Forecast
         </h2>
         <div
           id="forecastDays"
-          class="w-full inline-grid grid-cols-5 gap-2 place-content-center flex-col flex-wrap"
+          class="w-full inline-grid grid-cols-5 gap-1 place-content-center flex-col flex-wrap"
         >
           <div
             id="day1"
-            class="dayBlock text-2xl text-center border-solid border-4 border-gray-900 rounded-lg h-96 flex flex-wrap flex-col flex-1"
+            class="dayBlock bg-[#F1ACA2] text-xs lgTablet:text-xl font-info pt-2.5 object-left text-center border-solid border-2 border-slate-900 ring-1 ring-zinc-800 ring-inset ring-offset-1 rounded-lg h-64 flex flex-wrap flex-col flex-1 shadow-inner"
           >
             <p id="headingDay1" class="text-xl"></p>
           </div>
           <script>
-            var currentDate = dayjs().format(`dddd MMMM D, YYYY`);
-            document.getElementById("headingDay1").innerHTML = `${currentDate}`;
+            var currentDate = dayjs().format(`ddd MMM. D, YYYY`);
+            document.getElementById("day1").innerHTML = `${currentDate}`;
           </script>
           <div
             id="day2"
-            class="dayBlock text-2xl text-center border-solid border-4 border-gray-900 rounded-lg h-96 flex flex-wrap flex-col flex-1"
+            class="dayBlock bg-[#F1ACA2] text-xs lgTablet:text-xl font-info pt-2.5 object-left text-center border-solid border-2 border-slate-900 ring-1 ring-zinc-800 ring-inset ring-offset-1 rounded-lg h-64 flex flex-wrap flex-col flex-1 shadow-inner"
           >
             <p id="headingDay2" class="text-xl"></p>
           </div>
           <script>
-            var currentDate = dayjs().add(1, `d`).format(`dddd MMMM D, YYYY`);
-            document.getElementById("headingDay2").innerHTML = `${currentDate}`;
+            var currentDate = dayjs().add(1, `d`).format(`ddd MMM. D, YYYY`);
+            document.getElementById("day2").innerHTML = `${currentDate}`;
           </script>
           <div
             id="day3"
-            class="dayBlock text-2xl text-center border-solid border-4 border-gray-900 rounded-lg h-96 flex flex-wrap flex-col flex-1"
+            class="dayBlock bg-[#F1ACA2] text-xs lgTablet:text-xl font-info pt-2.5 object-left text-center border-solid border-2 border-slate-900 ring-1 ring-zinc-800 ring-inset ring-offset-1 rounded-lg h-64 flex flex-wrap flex-col flex-1 shadow-inner"
           >
             <p id="headingDay3" class="text-xl"></p>
           </div>
           <script>
-            var currentDate = dayjs().add(2, `d`).format(`dddd MMMM D, YYYY`);
-            document.getElementById("headingDay3").innerHTML = `${currentDate}`;
+            var currentDate = dayjs().add(2, `d`).format(`ddd MMM. D, YYYY`);
+            document.getElementById("day3").innerHTML = `${currentDate}`;
           </script>
           <div
             id="day4"
-            class="dayBlock text-2xl text-center border-solid border-4 border-gray-900 rounded-lg h-96 flex flex-wrap flex-col flex-1"
+            class="dayBlock bg-[#F1ACA2] text-xs lgTablet:text-xl font-info pt-2.5 object-left text-center border-solid border-2 border-slate-900 ring-1 ring-zinc-800 ring-inset ring-offset-1 rounded-lg h-64 flex flex-wrap flex-col flex-1 shadow-inner shadow-zinc-700"
           >
             <p id="headingDay4" class="text-xl"></p>
           </div>
           <script>
-            var currentDate = dayjs().add(3, `d`).format(`dddd MMMM D, YYYY`);
-            document.getElementById("headingDay4").innerHTML = `${currentDate}`;
+            var currentDate = dayjs().add(3, `d`).format(`ddd MMM. D, YYYY`);
+            document.getElementById("day4").innerHTML = `${currentDate}`;
           </script>
           <div
             id="day5"
-            class="dayBlock text-2xl text-center border-solid border-4 border-gray-900 rounded-lg h-96 flex flex-wrap flex-col flex-1"
+            class="dayBlock bg-[#F1ACA2] text-xs lgTablet:text-xl font-info pt-2.5 object-left text-center border-solid border-2 border-slate-900 ring-1 ring-zinc-800 ring-inset ring-offset-1 rounded-lg h-64 flex flex-wrap flex-col flex-1 shadow-inner shadow-zinc-700"
           >
             <p id="headingDay5" class="text-xl"></p>
           </div>
           <script>
-            var currentDate = dayjs().add(4, `d`).format(`dddd MMMM D, YYYY`);
-            document.getElementById("headingDay5").innerHTML = `${currentDate}`;
+            var currentDate = dayjs().add(4, `d`).format(`ddd MMM. D, YYYY`);
+            document.getElementById("day5").innerHTML = `${currentDate}`;
           </script>
         </div>
         <!-- Append forecast to this div -->
