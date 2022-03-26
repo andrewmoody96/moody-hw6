@@ -146,13 +146,13 @@
         >
           Current Weather
         </h2>
+        <p id="todaysDate" class="text-2xl my-5"></p>
+        <script>
+          var currentDate = dayjs().format(`ddd MMMM D, YYYY`);
+          document.getElementById("todaysDate").innerHTML = `${currentDate}`;
+          document.getElementById("todaysDate").classList.add("font-sansita");
+        </script>
         <div id="currentContainer">
-          <p id="todaysDate" class="text-2xl my-5"></p>
-          <script>
-            var currentDate = dayjs().format(`dddd MMMM D, YYYY`);
-            document.getElementById("todaysDate").innerHTML = `${currentDate}`;
-            document.getElementById("todaysDate").classList.add("font-sansita");
-          </script>
           <div
             id="dayCurrent"
             class="bg-[#262626] text-xs lgTablet:text-base font-info pt-2.5 object-left text-center border-solid border-2 border-slate-900 ring-1 ring-zinc-800 ring-inset ring-offset-1 rounded-lg h-64 flex flex-wrap flex-col flex-1 shadow-inner shadow-zinc-700"

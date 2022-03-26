@@ -92,11 +92,19 @@ function displayWeather() {
           .then(function (weatherResponse) {
             var currentIcon = weatherResponse.current.weather[0].icon;
             var currentTemp = weatherResponse.current.temp.toFixed();
-            var currentConditions =
+            var currentDescription =
               weatherResponse.current.weather[0].description;
             var currentHumidity = weatherResponse.current.humidity;
             var currentWind = weatherResponse.current.wind_speed.toFixed();
-            var currentUVI = weatherResponse.current.uvi;
+            var currentUVI = weatherResponse.current.uvi.toFixed();
+
+            currentConditions = currentDescription.split(' ');
+            for (let i = 0; i < currentConditions.length; i++) {
+              currentConditions[i] = currentConditions[i][0].toUpperCase() + currentConditions[i].substr(1);
+            }
+
+            currentConditions = currentConditions.join(' ');
+
 
             picCurrent = $(picCurrent)
               .addClass("h-14 w-auto")
@@ -109,7 +117,7 @@ function displayWeather() {
             $(currentConditions).appendTo("#currentList");
             currentHumidity = `<li class="text-xl font-info">Humidity: ${currentHumidity}%</li>`;
             $(currentHumidity).appendTo("#currentList");
-            currentWind = `<li class="text-xl font-info">Wind:${currentWind} MPH</li>`;
+            currentWind = `<li class="text-xl font-info">Wind: ${currentWind} MPH</li>`;
             $(currentWind).appendTo("#currentList");
 
             // Applies background color to indicate favorable, moderate, or severe UVI ratings.
@@ -132,11 +140,19 @@ function displayWeather() {
               var weatherIMG = weatherResponse.daily[i].weather[0].icon;
               var tempHigh = weatherResponse.daily[i].temp.max.toFixed();
               var tempLow = weatherResponse.daily[i].temp.min.toFixed();
-              var conditions = weatherResponse.daily[i].weather[0].description;
+              var description = weatherResponse.daily[i].weather[0].description;
               var humidity = weatherResponse.daily[i].humidity;
-              var windSpeed = weatherResponse.daily[i].wind_speed;
+              var windSpeed = weatherResponse.daily[i].wind_speed.toFixed();
               var windDegree = weatherResponse.daily[i].wind_deg;
 
+              // Capitalizes Weather Description
+              conditions = description.split(' ');
+              for (let i = 0; i < conditions.length; i++) {
+                conditions[i] = conditions[i][0].toUpperCase() + conditions[i].substr(1);
+              }
+
+              conditions = conditions.join(' ');
+              
               if (i === 0) {
                 console.log("1");
                 // retrieves weather icon & appends to weather block
