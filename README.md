@@ -21,21 +21,6 @@ Repository: https://github.com/andrewmoody96/moody-hw6-WeatherDashboard
 
 <br>
 
-## Screenshots
----
-
-![Screenshot of the Web App](./Assets/moodyWeather1.png "Screenshot of the Web App")
-
-![Screenshot of the Web App](./Assets/moodyWeather2.png "Screenshot of the Web App")
-
-![Screenshot of the Web App](./Assets/moodyWeather3.png "Screenshot of the Web App")
-
-![Screenshot of the Web App](./Assets/moodyWeather4.png "Screenshot of the Web App")
-
-<br>
-
-## Issues
+## Known Issues
 ---
 1. Need to run the function again using the saved values in local storage.
-
-2. Polish UI
